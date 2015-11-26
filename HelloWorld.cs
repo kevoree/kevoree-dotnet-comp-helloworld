@@ -9,6 +9,8 @@ namespace Org.Kevoree.Library.Comp.HelloWorld
     [Export(typeof(DeployUnit))]
     public class HelloWorld : MarshalByRefObject, DeployUnit
     {
+		[KevoreeInject]
+		private Org.Kevoree.Log.Api.ILogger logger;
 
         [Start]
         public void Start()
