@@ -14,7 +14,8 @@ namespace Org.Kevoree.Library.Comp.HelloWorld
         [Param(Optional = false, DefaultValue = "Hello, world")]
         public String greetMessage;
 
-        [KevoreeInject] private ILogger logger;
+        [KevoreeInject]
+        private ILogger logger;
 
         [Start]
         public void Start()
@@ -26,6 +27,12 @@ namespace Org.Kevoree.Library.Comp.HelloWorld
         public void Stop()
         {
             Console.WriteLine(this.greetMessage);
+        }
+
+        [Update]
+        public void Update()
+        {
+            logger.Info("Update: " + greetMessage);
         }
     }
 }
